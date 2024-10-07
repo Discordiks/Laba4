@@ -2,6 +2,7 @@ package com.example.laba4;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ public class NightActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_night);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //вертикальное расположение
         sleep=findViewById(R.id.buttonSleep);
         sleep.setOnClickListener(new View.OnClickListener() {
             @Override

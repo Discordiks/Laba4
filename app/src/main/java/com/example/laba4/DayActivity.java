@@ -3,6 +3,7 @@ package com.example.laba4;
 import android.content.Context;
 import android.content.Intent;
 import android.app.NotificationManager;
+import android.content.pm.ActivityInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +17,7 @@ public class DayActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_day);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT); //вертикальное расположение
         next=findViewById(R.id.buttonDD);
         //создание пуша
         MyPushNotification myPushNotification = new MyPushNotification(this,
