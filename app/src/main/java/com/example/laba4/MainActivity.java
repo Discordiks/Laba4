@@ -1,5 +1,6 @@
 package com.example.laba4;
 
+import android.app.NotificationManager;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -17,12 +18,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         btn1=findViewById(R.id.buttonMorning);
         btn2=findViewById(R.id.buttonDay);
         btn3=findViewById(R.id.buttonEvening);
         btn4=findViewById(R.id.buttonNight);
-
+        //создание пуша
+        MyPushNotification myPushNotification = new MyPushNotification(this,
+                getSystemService(NotificationManager.class));
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                myPushNotification.sendNotify("Предупреждение","Скоро конец рабочего дня ;)");
                 Intent intent=new Intent(getApplicationContext(),DayActivity.class);
                 startActivity(intent);
             }
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                myPushNotification.sendNotify("Предупреждение","Спаааать!");
                 Intent intent=new Intent(getApplicationContext(),EveningActivity.class);
                 startActivity(intent);
             }
